@@ -81,12 +81,21 @@ void hashString(string &inputStr, int *hashed){
             }
         }
     }
+    else{
+        int hashedIndex = 0;
+        for(int i = 0; i<inputStr.length(); i++){
+            if(i == 64) hashedIndex = 0;
+            hashed[hashedIndex] += fullSum + allIntSums[i];
+            hashed[hashedIndex] = hashed[hashedIndex]%16;
+            hashedIndex++;
+        }
+    }
     
 }
 
 int main(){
 
-    string inputStr = "Lietuva";
+    string inputStr = "Lietuva!";
     int hashed[64];
 
     initialiseHash(hashed);
