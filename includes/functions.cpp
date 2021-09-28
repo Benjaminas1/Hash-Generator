@@ -259,3 +259,28 @@ void effectivenessTest(){
     
     in.close();
 }
+
+void collisionTest(){
+    int stringQuantity = 25000;
+    int symbolSize[4] = {10, 100, 500, 1000}; //Don't change this
+
+    int collisionCount = 0;
+
+    cout << "Performing hashing algorithm collision test" << endl;
+    cout << "..........................................." << endl;
+    cout << "Collisions: ";
+    
+    for(int i=0; i<4; i++){
+        for(int pairIndex=0; pairIndex<stringQuantity; pairIndex++){
+            string first = generateRandomSymbols(symbolSize[i]);
+            string second = generateRandomSymbols(symbolSize[i]);
+            if(hashString(first) == hashString(second)) collisionCount++;
+        }
+    }
+
+    cout << collisionCount << " out of " << stringQuantity*4 << endl;
+}
+
+void diversityTest(){
+    
+}

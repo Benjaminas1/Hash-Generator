@@ -20,3 +20,7 @@ void inputFromFile();
 void basicTests();
 
 void effectivenessTest();
+
+void collisionTest();
+
+void diversityTest();

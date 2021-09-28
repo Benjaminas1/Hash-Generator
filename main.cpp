@@ -17,9 +17,8 @@ int main(){
     << "2. Input from file" << endl
     << "3. Basic tests" << endl
     << "4. Hash function effectiveness test" << endl
-    << "5. " << endl
-    << "6. " << endl
-    << "7. " << endl;
+    << "5. Collision test" << endl
+    << "6. Diversity test" << endl;
     cout << endl;
 
     int choise;
@@ -40,13 +39,10 @@ int main(){
             effectivenessTest();
             break;
         case 5:
-
+            collisionTest();
             break;
         case 6:
-
-            break;
-        case 7:
-
+            diversityTest();
             break;
     }
 
