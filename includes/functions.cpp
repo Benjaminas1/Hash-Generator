@@ -414,12 +414,6 @@ void diversityTest(){
             bitsAvg2 += totalBits;
             hexAvg1 += sameHex;
             hexAvg2 += totalHex;
-
-            if(pairIndex == 0){
-                cout << first << endl << second << endl;
-                cout << "Same bits: " << sameBits << endl;
-                cout << "Same hex: " << sameHex << endl;
-            }
         }
     }
     cout << setw(32) << "" << setw(7) << "bits" << setw(7) << "hex" << endl;
