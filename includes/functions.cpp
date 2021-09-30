@@ -64,10 +64,6 @@ int sumIntElements(int number){
 }
 
 string hashString(string inputStr){
-
-    //To do:
-    //Implementuoti reverseInt
-
     int hashed[64];
     initialiseHash(hashed);
 
@@ -76,31 +72,38 @@ string hashString(string inputStr){
     vector<int> allIntSums;
     int fullSum = 0;
 
-    // for(int i=0; i<inputStr.length(); i++){
-    //     //Convert letter to int using ascii
-    //     int number = (int)inputStr[i];
-    //     //Adding all number symbols together
-    //     int sum = sumIntElements(number);
+    // Fixing same hashes when all symbols are the same, or when there is only single symbol
+    bool allSymbolsSame = true;
+    for(int i=0; i<inputStr.length()-1; i++){
+        if(inputStr[i]!=inputStr[i+1]){
+            allSymbolsSame = false;
+            break;
+        }
+    }
+    if(allSymbolsSame == true || inputStr.length() == 1) inputStr += "[2a.re]'/fdfe.w[ro[]o23v,pw/]ad" + inputStr[0];
 
-    //     allIntSums.push_back(sum);
-    //     fullSum += sum;
-    // }
-
+    // Filling vector with calculated numbers and counting sum
     for(int i=0; i<inputStr.length(); i++){
         //Convert letter to int using ascii
         int number = (int)inputStr[i];
-        
-        
-        // if (number >= '0' && number <= '9') number = (int)number - '0';
-        // else number = (int)number - 'A' + 10;
 
         allIntSums.push_back(number);
         fullSum += number;
     }
 
+    // Slower version
+    // for(int i=0; i<inputStr.length(); i++){
+    //     int num = reverseInt((int)inputStr[i]*953);
+    //     while(num>=1000) num /= 10;
+    //     allIntSums.push_back(num%10);
+    //     allIntSums.push_back(num%100/10);
+    //     allIntSums.push_back(num/100);
+    //     fullSum += (int)inputStr[i];
+    // }
+
     if(inputStr.length() < 64){
         for(int i=0; i<64;){
-            for(int inputStrIndex = 0; inputStrIndex<inputStr.length(); inputStrIndex++){
+            for(int inputStrIndex = 0; inputStrIndex<allIntSums.size(); inputStrIndex++){
                 if(i + inputStrIndex <= 64){
                     hashed[i] += fullSum + allIntSums[inputStrIndex];
                     hashed[i] = hashed[i]%16;
@@ -370,8 +373,8 @@ void diversityTest(){
     int symbolSize[4] = {10, 100, 500, 1000}; //Don't change this
 
 
-    int bitsMin = 256, bitsMax = 0;
-    int hexMin = 64, hexMax = 0;
+    double bitsMin = 256, bitsMax = 0;
+    double hexMin = 64, hexMax = 0;
     double bitsAvg1 = 0, bitsAvg2 = 0;
     double hexAvg1 = 0, hexAvg2 = 0;
 
@@ -385,10 +388,10 @@ void diversityTest(){
             string second = hashString("c" + generatedString);
 
             int totalBits = 256;
-            int sameBits = 0;
+            double sameBits = 0;
 
             int totalHex = 64;
-            int sameHex = 0;
+            double sameHex = 0;
             
             for(int strIndex=0; strIndex<first.length(); strIndex++){
                 // Binary
@@ -419,9 +422,9 @@ void diversityTest(){
             }
         }
     }
-    cout << setw(28) << "" << setw(7) << "bits" << setw(7) << "hex" << endl;
-    cout << "Maximum collisions in pair: " << setw(7) << bitsMax << setw(7) << hexMax << endl;
-    cout << "Minimum collisions in pair: " << setw(7) << bitsMin << setw(7) << hexMin << endl;
-    cout << "Average collisions in pair: " << setw(7) << setprecision(4) << bitsAvg1/bitsAvg2 *100 << setw(7) << setprecision(4) << hexAvg1/hexAvg2 *100<< endl;
+    cout << setw(32) << "" << setw(7) << "bits" << setw(7) << "hex" << endl;
+    cout << "Maximum collisions in pair (%): " << setw(7) << setprecision(4) << (bitsMax/256)*100 << setw(7) << setprecision(4) << (hexMax/64)*100 << endl;
+    cout << "Minimum collisions in pair (%): " << setw(7) << setprecision(4) << (bitsMin/256)*100 << setw(7) << setprecision(4) << (hexMin/64)*100 << endl;
+    cout << "Average collisions in pair (%): " << setw(7) << setprecision(4) << bitsAvg1/bitsAvg2 *100  << setw(7) << setprecision(4) << hexAvg1/hexAvg2 *100  << endl;
     
 }
