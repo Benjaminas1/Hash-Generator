@@ -6,6 +6,9 @@
 #include <fstream>
 #include <random>
 #include <chrono>
+#include <stdlib.h>
+#include <algorithm>
+#include <iomanip>
 
 #include "../hashingAlg/md5.h"
 #include "../hashingAlg/sha1.h"
