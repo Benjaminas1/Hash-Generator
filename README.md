@@ -17,7 +17,7 @@ Algorithm upsides:
 Good collision resistance, avalanche effect.
 
 Algorithm downsides:
-Relativelly slow compared to other hashing algorithms (almost 2 times slower than sha256).
+Relativelly slow compared to other hashing algorithms (almost 2 times slower than sha256), diversity could be improved.
 
 # How it works
 
