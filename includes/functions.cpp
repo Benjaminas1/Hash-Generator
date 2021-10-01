@@ -107,6 +107,7 @@ string hashString(string inputStr){
                 if(i + inputStrIndex <= 64){
                     hashed[i] += fullSum + allIntSums[inputStrIndex];
                     hashed[i] = hashed[i]%16;
+                    if(hashed[i]<0) hashed[i] = -hashed[i];
                     i++;
                 }
                 else break;
@@ -115,13 +116,14 @@ string hashString(string inputStr){
     }
     else{
         int hashedIndex = 0;
-        for(int i = 0; i<inputStr.length(); i++){
+        for(int i = 0; i<allIntSums.size(); i++){
             if(i % 64 == 0 && i != 0){
                 hashedIndex = 0;
                 fullSum = 0;
             }
             hashed[hashedIndex] += fullSum + allIntSums[i];
             hashed[hashedIndex] = hashed[hashedIndex]%16;
+            if(hashed[hashedIndex]<0) hashed[hashedIndex] = -hashed[hashedIndex];
             hashedIndex++;
         }
     }
