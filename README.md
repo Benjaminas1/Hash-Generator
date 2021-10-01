@@ -14,10 +14,10 @@ Hashing algorithm meets these requirements:
 * Avalanche effect based.
 
 Algorithm upsides:
-Good collision resistance, avalanche effect.
+Good collision resistance.
 
 Algorithm downsides:
-Relativelly slow compared to other hashing algorithms (almost 2 times slower than sha256), diversity could be improved.
+Relativelly slow compared to other hashing algorithms (almost 2 times slower than sha256), avalanche effect could be improved.
 
 # How it works
 
