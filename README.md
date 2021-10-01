@@ -83,9 +83,9 @@ When you open the program, you can choose one of 6 options:
         Performing hashing algorithm diversity test
         ...........................................
                                            bits    hex
-        Maximum collisions in pair (%):    70.7      0
-        Minimum collisions in pair (%):   55.86      0
-        Average collisions in pair (%):   63.04      0
+        Maximum collisions in pair (%):   94.92  79.69
+        Minimum collisions in pair (%):   57.03      0
+        Average collisions in pair (%):   77.79  35.16
 
 # How to run:
         
