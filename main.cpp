@@ -4,15 +4,6 @@ using namespace std;
 
 int main(){
 
-    // string inputStr = "Lietuva!";
-    // int hashed[64];
-
-    // initialiseHash(hashed);
-
-    // hashString(inputStr, hashed);
-
-    // printHash(hashed);
-
     cout << "1. Input from command line" << endl
     << "2. Input from file" << endl
     << "3. Basic tests" << endl
